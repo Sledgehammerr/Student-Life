@@ -2,17 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Task : MonoBehaviour
+public abstract class Task : MonoBehaviour
 {
-    public int TimeToComplete;
-    void Start()
-    {
-        
-    }
-
-
-    void Update()
-    {
-        
-    }
+    private static Random random = new Random();
+    public int CompletionTime { get; set; }
+    
 }

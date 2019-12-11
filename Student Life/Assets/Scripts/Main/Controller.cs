@@ -16,20 +16,32 @@ public class Controller : MonoBehaviour
 
     public GameObject EndGame;
 
+    private Player player;
+
+    void Start()
+    {
+        player = GameObject.Find("Player").GetComponent<Player>();
+    }
+
     void Update()
     {
-        textUserName.text = Player.UserName;
-        textMoney.text = Player.Money.ToString();
-        textHealth.text = Player.Health.ToString();
-        textSatiety.text = Player.Satiety.ToString();
-        textStamina.text = Player.Stamina.ToString();
-        textDate.text = Player.Date.Day + "." + Player.Date.Month + "." + Player.Date.Year;
-        textPart.text = Player.PartsOfDay + "/3";
+        textUserName.text = player.UserName;
+        textMoney.text = player.Money.ToString();
+        textHealth.text = player.Health.ToString();
+        textSatiety.text = player.Satiety.ToString();
+        textStamina.text = player.Stamina.ToString();
+        textDate.text = player.Date.Day + "." + player.Date.Month + "." + player.Date.Year;
+        textPart.text = player.PartsOfDay + "/3";
 
-        if (Player.Health == 0)
+        if (player.Health == 0)
         {
             EndGame.SetActive(true);
         }
+    }
+
+    public void Message(string message)
+    {
+        //do something
     }
 
 }

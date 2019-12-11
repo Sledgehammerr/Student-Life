@@ -1,13 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameMenu : MonoBehaviour
 {
+    public GameObject JobPanel;
+    public GameObject ShopPanel;
+
+    private Player player;
+
     void Start()
     {
-        
+        player = GameObject.Find("Player").GetComponent<Player>();
     }
 
     void Update()
@@ -15,24 +18,54 @@ public class GameMenu : MonoBehaviour
         
     }
 
-    public void HomeMenu()
+    bool IsAnyPanelOpen
+    {
+        get
+        {
+            if (ShopPanel.activeSelf || JobPanel.activeSelf)
+            {
+                return true;
+            }
+            else return false;
+        }
+        
+    }
+
+    public void SleepButton()
+    {
+        player.ChangeStat(0, 20, -10, 50);
+        player.PartsOfDay++;
+    }
+
+    public void StudyButton()
     {
 
     }
 
-    public void StudyMenu()
+    public void JobButton()
     {
-
+        if (JobPanel.activeSelf)
+        {
+            JobPanel.SetActive(false);
+        }
+        else
+        {
+            JobPanel.SetActive(true);
+            ShopPanel.SetActive(false);
+        }
     }
 
-    public void JobMenu()
+    public void ShopButton()
     {
-
-    }
-
-    public void WorkMenu()
-    {
-
+        if (ShopPanel.activeSelf)
+        {
+            ShopPanel.SetActive(false);
+        }
+        else
+        {
+            JobPanel.SetActive(false);
+            ShopPanel.SetActive(true);
+        }
     }
 
     public void EndGame()
@@ -41,22 +74,5 @@ public class GameMenu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void Eat()
-    {
-        Player.Money -= 30;
-        Player.Health -= 5;
-        Player.Satiety += 15;
-        Player.Stamina += 5;
 
-        Player.PartsOfDay++;
-        
-    }
-    public void Sleep()
-    {
-        Player.Stamina += 50;
-        Player.Health += 20;
-        Player.Satiety -= 10;
-
-        Player.PartsOfDay++;
-    }
 }

@@ -3,34 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Player
+public class Player : MonoBehaviour
 {
-    public static string UserName { get; set; }
-    private static int money;
-    private static int health;
-    private static int satiety;
-    private static int stamina;
-    private static int partsDay;
-    public static DateTime Date { get; set; }
+    public string UserName { get; set; }
+    public int Money { get; set; }
+    private int health;
+    private int satiety;
+    private int stamina;
+    private int partsDay;
+    public DateTime Date { get; set; }
+    private double grade;
+    private static Player playerInstance;
 
-    public static int Money
-    {
-        get { return money; }
-        set
-        {
-            if (value < 0)
-            {
-                money = 0;
-            }
-            else
-            {
-                money = value;
-            }
-            
-        }
-    }
-
-    public static int Health
+    public int Health
     {
         get { return health; }
         set
@@ -50,7 +35,7 @@ public static class Player
         }
     }
 
-    public static int Satiety 
+    public int Satiety 
     {
         get { return satiety; }
         set
@@ -71,7 +56,7 @@ public static class Player
         }
     }
 
-    public static int Stamina 
+    public int Stamina 
     {
         get { return stamina; }
         set
@@ -92,7 +77,7 @@ public static class Player
         }
     }
 
-    public static int PartsOfDay
+    public int PartsOfDay
     { 
         get { return partsDay; }
         set {
@@ -108,14 +93,70 @@ public static class Player
         }
     }
 
-    public static void Init()
+    public double Grade 
+    {
+        get { return grade; }
+        set
+        {
+            if (value > 5)
+            {
+                grade = 5;
+            }
+            else if (value < 2)
+            {
+                grade = 2;
+            }
+            else
+            {
+                grade = value;
+            }
+        }
+    }
+
+    
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
+
+        if (playerInstance == null)
+        {
+            playerInstance = this;
+        }
+        else
+        {
+            DestroyObject(gameObject);
+        }
+    }
+
+    void Update()
+    {
+        
+    }
+
+
+    public void ChangeStat(int money, int health, int satiety, int stamina)
+    {
+        if (Money + money > 0)
+        {
+            Money += money;
+            Health += health;
+            Satiety += satiety;
+            Stamina += stamina;
+        }
+        //else TODO: message()
+
+
+    }
+
+    public void Init()
     {
         Date = DateTime.Now;
         
-        money = 1000;
-        health = 100;
-        satiety = 100;
-        stamina = 100;
-        partsDay = 1;
+        Money = 1000;
+        Health = 100;
+        Satiety = 100;
+        Stamina = 100;
+        PartsOfDay = 1;
+        grade = 3;
     }
 }
