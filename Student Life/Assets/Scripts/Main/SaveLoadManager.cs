@@ -11,6 +11,7 @@ public class SaveLoadManager : MonoBehaviour
     {
         player = GameObject.Find("Player").GetComponent<Player>();
     }
+
     public void SaveGame()
     {
         PlayerPrefs.SetString("Username", player.UserName);
@@ -21,7 +22,7 @@ public class SaveLoadManager : MonoBehaviour
         PlayerPrefs.SetInt("Day", player.Date.Day);
         PlayerPrefs.SetInt("Month", player.Date.Month);
         PlayerPrefs.SetInt("Year", player.Date.Year);
-        PlayerPrefs.SetInt("PartOfDay", player.PartsOfDay);
+        PlayerPrefs.SetInt("PartOfDay", player.PartsDay);
         PlayerPrefs.Save();
     }
     
@@ -33,7 +34,7 @@ public class SaveLoadManager : MonoBehaviour
         player.Satiety = PlayerPrefs.GetInt("Satiety");
         player.Stamina = PlayerPrefs.GetInt("Stamina");
         player.Date = new DateTime(PlayerPrefs.GetInt("Year"), PlayerPrefs.GetInt("Month"), PlayerPrefs.GetInt("Day"));
-        player.PartsOfDay = PlayerPrefs.GetInt("PartOfDay");
+        player.PartsDay = PlayerPrefs.GetInt("PartOfDay");
     }
 
     public bool TryLoad()

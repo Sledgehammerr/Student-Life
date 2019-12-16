@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     private int partsDay;
     public DateTime Date { get; set; }
     private double grade;
-    private static Player playerInstance;
+    public static Player playerInstance { get; set; }
 
     public int Health
     {
@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public int PartsOfDay
+    public int PartsDay
     { 
         get { return partsDay; }
         set {
@@ -124,15 +124,9 @@ public class Player : MonoBehaviour
         }
         else
         {
-            DestroyObject(gameObject);
+            Destroy(gameObject);
         }
     }
-
-    void Update()
-    {
-        
-    }
-
 
     public void ChangeStat(int money, int health, int satiety, int stamina)
     {
@@ -156,7 +150,19 @@ public class Player : MonoBehaviour
         Health = 100;
         Satiety = 100;
         Stamina = 100;
-        PartsOfDay = 1;
+        PartsDay = 1;
         grade = 3;
+    }
+
+    public void Buy(Item item)
+    {
+        if (Money - item.Price >= 0)
+        {
+            if (item is Food)
+            {
+                Food food = item as Food;
+                Game.ChangeStat(-food.Price, food.Health, food.Satiety, food.Stamina);
+            }
+        }
     }
 }

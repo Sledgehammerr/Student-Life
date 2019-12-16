@@ -715,7 +715,6 @@ MonoBehaviour:
   login: {fileID: 1132413750}
   inputUserName: {fileID: 622446648}
   manager: {fileID: 2128261234}
-  player: {fileID: 918760289}
 --- !u!114 &871637227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2395,7 +2394,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005732363747f0040a529644d225aa1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 918760289}
 --- !u!4 &2128261235
 Transform:
   m_ObjectHideFlags: 0

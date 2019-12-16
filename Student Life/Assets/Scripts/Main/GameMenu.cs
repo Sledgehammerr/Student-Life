@@ -6,35 +6,24 @@ public class GameMenu : MonoBehaviour
     public GameObject JobPanel;
     public GameObject ShopPanel;
 
-    private Player player;
+    //private Player player;
 
-    void Start()
-    {
-        player = GameObject.Find("Player").GetComponent<Player>();
-    }
+    //void Start()
+    //{
+    //    player = GameObject.Find("Player").GetComponent<Player>();
+    //}
 
-    void Update()
-    {
+    //void Update()
+    //{
         
-    }
-
-    bool IsAnyPanelOpen
-    {
-        get
-        {
-            if (ShopPanel.activeSelf || JobPanel.activeSelf)
-            {
-                return true;
-            }
-            else return false;
-        }
-        
-    }
+    //}
 
     public void SleepButton()
     {
-        player.ChangeStat(0, 20, -10, 50);
-        player.PartsOfDay++;
+        //player.ChangeStat(0, 20, -10, 50);
+        //player.PartsOfDay++;
+        Game.CurrentPlayer.ChangeStat(0, 20, -10, 50);
+        Game.TimeIncrease();
     }
 
     public void StudyButton()
