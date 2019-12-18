@@ -16,6 +16,7 @@ public static class SaveLoadManager
         PlayerPrefs.SetInt("Month", Player.playerInstance.Date.Month);
         PlayerPrefs.SetInt("Year", Player.playerInstance.Date.Year);
         PlayerPrefs.SetInt("PartOfDay", Player.playerInstance.PartsDay);
+        PlayerPrefs.SetFloat("Grade", (float)Player.playerInstance.Grade);
         PlayerPrefs.Save();
     }
     
@@ -28,6 +29,7 @@ public static class SaveLoadManager
         Player.playerInstance.Stamina = PlayerPrefs.GetInt("Stamina");
         Player.playerInstance.Date = new DateTime(PlayerPrefs.GetInt("Year"), PlayerPrefs.GetInt("Month"), PlayerPrefs.GetInt("Day"));
         Player.playerInstance.PartsDay = PlayerPrefs.GetInt("PartOfDay");
+        Player.playerInstance.Grade = PlayerPrefs.GetFloat("Grade");
     }
 
     public static bool TryLoad()

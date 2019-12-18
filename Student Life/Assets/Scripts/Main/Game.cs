@@ -71,23 +71,25 @@ public static class Game
                 Debug.Log("Grade: " + CurrentPlayer.Grade);
                 CurrentGameMenu.StudyPanel.SetActive(false);
             }
-
-
         }
 
-        if ((CurrentPlayer.Date.Day % 7) == 0)
+        if ((CurrentPlayer.Date.Day % 7) == 0 && CurrentPlayer.PartsDay == 1)
         {
-            if (CurrentPlayer.PartsDay == 1)
+            if (CurrentPlayer.currentHomeWork == null)
             {
-                if (CurrentPlayer.currentHomeWork == null)
-                {
-                    Debug.Log("Task");
-                    CurrentPlayer.currentHomeWork = ScriptableObject.CreateInstance<HomeWork>();
-                    CurrentPlayer.currentHomeWork.Init();
-                }
-                Debug.Log("Save");
-                SaveLoadManager.SaveGame();
+                Debug.Log("Task");
+                CurrentPlayer.currentHomeWork = ScriptableObject.CreateInstance<HomeWork>();
+                CurrentPlayer.currentHomeWork.Init();
             }
+            Debug.Log("Save");
+            SaveLoadManager.SaveGame();
+        }
+
+        if (CurrentPlayer.Date.Day == 1 && CurrentPlayer.PartsDay == 1 && CurrentPlayer.Grade >= 4f)
+        {
+            Debug.Log("Money");
+            var money = 500 * (int)(CurrentPlayer.Grade - 3.0);
+            ChangeStat(money, 0, 0, 0);
         }
 
         CurrentUIController.UpdateUI();
