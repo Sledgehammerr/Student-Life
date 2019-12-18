@@ -88,8 +88,7 @@ public static class Game
         if (CurrentPlayer.Date.Day == 1 && CurrentPlayer.PartsDay == 1 && CurrentPlayer.Grade >= 4f)
         {
             Debug.Log("Money");
-            var money = 500 * (int)(CurrentPlayer.Grade - 3.0);
-            ChangeStat(money, 0, 0, 0);
+            ChangeStat(500 * (int)(CurrentPlayer.Grade - 3.0), 0, 0, 0);
         }
 
         CurrentUIController.UpdateUI();

@@ -1,9 +1,14 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - Controller
+    - Food
     - GameMenu
     - MainMenu
+    - Player
+    - Store
+    - StoreButton
+    - StudyButton
+    - UIController
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -21,6 +26,7 @@ ScriptsOnlyBuild:
     - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
+    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -52,23 +58,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9900}
     - Class: 114
-      Script: {instanceID: 10122}
+      Script: {instanceID: 9906}
     - Class: 114
-      Script: {instanceID: 10178}
+      Script: {instanceID: 10128}
     - Class: 114
-      Script: {instanceID: 10252}
+      Script: {instanceID: 10184}
     - Class: 114
-      Script: {instanceID: 10308}
+      Script: {instanceID: 10258}
     - Class: 114
-      Script: {instanceID: 10688}
+      Script: {instanceID: 10316}
     - Class: 114
-      Script: {instanceID: 10918}
+      Script: {instanceID: 10698}
     - Class: 114
-      Script: {instanceID: 11124}
+      Script: {instanceID: 10846}
     - Class: 114
-      Script: {instanceID: 11188}
+      Script: {instanceID: 10930}
     - Class: 114
-      Script: {instanceID: 11586}
+      Script: {instanceID: 11008}
+    - Class: 114
+      Script: {instanceID: 11142}
+    - Class: 114
+      Script: {instanceID: 11206}
+    - Class: 114
+      Script: {instanceID: 11512}
+    - Class: 114
+      Script: {instanceID: 11548}
+    - Class: 114
+      Script: {instanceID: 11606}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -111,31 +127,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9900}
     - Class: 114
-      Script: {instanceID: 9922}
+      Script: {instanceID: 9924}
     - Class: 114
-      Script: {instanceID: 10102}
+      Script: {instanceID: 10108}
     - Class: 114
-      Script: {instanceID: 10308}
+      Script: {instanceID: 10316}
     - Class: 114
-      Script: {instanceID: 10330}
+      Script: {instanceID: 10338}
     - Class: 114
-      Script: {instanceID: 10688}
+      Script: {instanceID: 10698}
     - Class: 114
-      Script: {instanceID: 10898}
+      Script: {instanceID: 10910}
     - Class: 114
-      Script: {instanceID: 10918}
+      Script: {instanceID: 10930}
     - Class: 114
-      Script: {instanceID: 10932}
+      Script: {instanceID: 10944}
     - Class: 114
-      Script: {instanceID: 11124}
+      Script: {instanceID: 11142}
     - Class: 114
-      Script: {instanceID: 11188}
+      Script: {instanceID: 11206}
     - Class: 114
-      Script: {instanceID: 11370}
+      Script: {instanceID: 11388}
     - Class: 114
-      Script: {instanceID: 11484}
+      Script: {instanceID: 11502}
     - Class: 114
-      Script: {instanceID: 11586}
+      Script: {instanceID: 11548}
+    - Class: 114
+      Script: {instanceID: 11606}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -231,6 +249,12 @@ ScriptsOnlyBuild:
     className: Image
   - hash:
       serializedVersion: 2
+      Hash: f318f99fe4bfedbe3da2e8ef04c1f12d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Food
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
@@ -273,6 +297,12 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
+      Hash: c88c4199b288356ec3eb2f0d85abc619
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Work
+  - hash:
+      serializedVersion: 2
       Hash: bd3cf68c8964d3c66d1c43f4f98508c9
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -303,10 +333,10 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 45fab772c3e6dab7859212406be606cf
+      Hash: 44b3c553c1bd93ee2f7f20dbe6b8a610
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Controller
+    className: UIController
   - hash:
       serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
@@ -321,7 +351,7 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: d8e481125b476079a10c3c573c1e2762
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameMenu
@@ -333,10 +363,10 @@ ScriptsOnlyBuild:
     className: Benchmark03
   - hash:
       serializedVersion: 2
-      Hash: dead90c5ae6aefe9246a54d6e0df5f75
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Task
+    className: StoreButtonEditor
   - hash:
       serializedVersion: 2
       Hash: e6f0efd0e20669d577e9d21526b3d3f9
@@ -471,6 +501,12 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: 5f1752ed2092162f016c19510c28a8b9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StudyButton
+  - hash:
+      serializedVersion: 2
       Hash: 11319334e5365797f8056694f9b5dae4
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
@@ -549,6 +585,12 @@ ScriptsOnlyBuild:
     className: TMP_TextSelector_A
   - hash:
       serializedVersion: 2
+      Hash: 6d7c645f8e79f785dfb0bc21ecabd475
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StoreButton
+  - hash:
+      serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -565,6 +607,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: TMP_TextInfoDebugTool
+  - hash:
+      serializedVersion: 2
+      Hash: c88c4199b288356ec3eb2f0d85abc619
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HomeWork
   - hash:
       serializedVersion: 2
       Hash: bd3f0ca738703903e759f77536ed74fd
@@ -699,6 +747,12 @@ ScriptsOnlyBuild:
     className: TMP_ColorGradient
   - hash:
       serializedVersion: 2
+      Hash: 5f66febb5a3dcd0d0b0ac0d189c34cbd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Store
+  - hash:
+      serializedVersion: 2
       Hash: 0784d4fd5b93bd75440d01eb2fac4233
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
@@ -721,6 +775,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: BaseInput
+  - hash:
+      serializedVersion: 2
+      Hash: 2917e5746ed14b6f98042b16ba6566a0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Player
   - hash:
       serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268

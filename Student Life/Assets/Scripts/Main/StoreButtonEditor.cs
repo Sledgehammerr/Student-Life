@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿#if UNITY_EDITOR
 using UnityEditor;
 
 [CustomEditor(typeof(StoreButton))]
@@ -11,3 +10,4 @@ public class StoreButtonEditor : Editor
         StoreButton t = (StoreButton)target;
     }
 }
+#endif
