@@ -5,6 +5,7 @@ public class GameMenu : MonoBehaviour
 {
     public GameObject JobPanel;
     public GameObject ShopPanel;
+    public GameObject StudyPanel;
 
     //private Player player;
 
@@ -22,13 +23,30 @@ public class GameMenu : MonoBehaviour
     {
         //player.ChangeStat(0, 20, -10, 50);
         //player.PartsOfDay++;
-        Game.CurrentPlayer.ChangeStat(0, 20, -10, 50);
+        Game.ChangeStat(0, 20, -10, 50);
         Game.TimeIncrease();
     }
 
     public void StudyButton()
     {
-
+        if (Game.CurrentPlayer.currentHomeWork != null)
+        {
+            if (StudyPanel.activeSelf)
+            {
+                StudyPanel.SetActive(false);
+            }
+            else
+            {
+                StudyPanel.SetActive(true);
+                JobPanel.SetActive(false);
+                ShopPanel.SetActive(false);
+            }
+        }
+        else
+        {
+            //Game.CurrentUIController.Message("У вас нет домашних заданий");
+            Debug.Log("У вас нет домашних заданий");
+        }
     }
 
     public void JobButton()
@@ -39,6 +57,7 @@ public class GameMenu : MonoBehaviour
         }
         else
         {
+            StudyPanel.SetActive(false);
             JobPanel.SetActive(true);
             ShopPanel.SetActive(false);
         }
@@ -52,6 +71,7 @@ public class GameMenu : MonoBehaviour
         }
         else
         {
+            StudyPanel.SetActive(false);
             JobPanel.SetActive(false);
             ShopPanel.SetActive(true);
         }

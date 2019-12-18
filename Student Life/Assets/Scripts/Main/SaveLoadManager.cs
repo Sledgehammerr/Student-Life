@@ -3,41 +3,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SaveLoadManager : MonoBehaviour
+public static class SaveLoadManager
 {
-    private Player player;
-
-    void Start()
+    public static void SaveGame()
     {
-        player = GameObject.Find("Player").GetComponent<Player>();
-    }
-
-    public void SaveGame()
-    {
-        PlayerPrefs.SetString("Username", player.UserName);
-        PlayerPrefs.SetInt("Money", player.Money);
-        PlayerPrefs.SetInt("Health", player.Health);
-        PlayerPrefs.SetInt("Satiety", player.Satiety);
-        PlayerPrefs.SetInt("Stamina", player.Stamina);
-        PlayerPrefs.SetInt("Day", player.Date.Day);
-        PlayerPrefs.SetInt("Month", player.Date.Month);
-        PlayerPrefs.SetInt("Year", player.Date.Year);
-        PlayerPrefs.SetInt("PartOfDay", player.PartsDay);
+        PlayerPrefs.SetString("Username", Player.playerInstance.UserName);
+        PlayerPrefs.SetInt("Money", Player.playerInstance.Money);
+        PlayerPrefs.SetInt("Health", Player.playerInstance.Health);
+        PlayerPrefs.SetInt("Satiety", Player.playerInstance.Satiety);
+        PlayerPrefs.SetInt("Stamina", Player.playerInstance.Stamina);
+        PlayerPrefs.SetInt("Day", Player.playerInstance.Date.Day);
+        PlayerPrefs.SetInt("Month", Player.playerInstance.Date.Month);
+        PlayerPrefs.SetInt("Year", Player.playerInstance.Date.Year);
+        PlayerPrefs.SetInt("PartOfDay", Player.playerInstance.PartsDay);
         PlayerPrefs.Save();
     }
     
-    private void LoadGame()
+    private static void LoadGame()
     {
-        player.UserName = PlayerPrefs.GetString("Username");
-        player.Money = PlayerPrefs.GetInt("Money");
-        player.Health = PlayerPrefs.GetInt("Health");
-        player.Satiety = PlayerPrefs.GetInt("Satiety");
-        player.Stamina = PlayerPrefs.GetInt("Stamina");
-        player.Date = new DateTime(PlayerPrefs.GetInt("Year"), PlayerPrefs.GetInt("Month"), PlayerPrefs.GetInt("Day"));
-        player.PartsDay = PlayerPrefs.GetInt("PartOfDay");
+        Player.playerInstance.UserName = PlayerPrefs.GetString("Username");
+        Player.playerInstance.Money = PlayerPrefs.GetInt("Money");
+        Player.playerInstance.Health = PlayerPrefs.GetInt("Health");
+        Player.playerInstance.Satiety = PlayerPrefs.GetInt("Satiety");
+        Player.playerInstance.Stamina = PlayerPrefs.GetInt("Stamina");
+        Player.playerInstance.Date = new DateTime(PlayerPrefs.GetInt("Year"), PlayerPrefs.GetInt("Month"), PlayerPrefs.GetInt("Day"));
+        Player.playerInstance.PartsDay = PlayerPrefs.GetInt("PartOfDay");
     }
 
-    public bool TryLoad()
+    public static bool TryLoad()
     {
         if (PlayerPrefs.HasKey("Username"))
         {

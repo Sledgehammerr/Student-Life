@@ -14,6 +14,8 @@ public class UIController : MonoBehaviour
     //public TextMeshProUGUI textHealth;
     //public TextMeshProUGUI textSatiety;
     //public TextMeshProUGUI textStamina;
+    public TextMeshProUGUI textStudyCount;
+    public TextMeshProUGUI textStudyTimeReq;
     public TextMeshProUGUI textDate;
     public TextMeshProUGUI textPart;
 
@@ -37,11 +39,10 @@ public class UIController : MonoBehaviour
         //textStamina.text = Game.CurrentPlayer.Stamina.ToString();
         textDate.text = Game.CurrentPlayer.Date.Day + "." + Game.CurrentPlayer.Date.Month + "." + Game.CurrentPlayer.Date.Year;
         textPart.text = Game.CurrentPlayer.PartsDay + "/3";
-
-        if (Game.CurrentPlayer.Health == 0)
-        {
-            EndGame.SetActive(true);
-        }
+        //*TODO:
+        textStudyCount.text = Game.CurrentPlayer.currentHomeWork.CompletionTime.ToString();
+        textStudyTimeReq.text = Game.CurrentPlayer.currentHomeWork.CompletionRequirement.ToString();
+        
     }
 
     public void Message(string message)

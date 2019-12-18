@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Task : MonoBehaviour
+public abstract class Task : ScriptableObject
 {
-    private static Random random = new Random();
-    public int CompletionTime { get; set; }
-    
+    [SerializeField] public string Name;
+    [SerializeField] public int CompletionTime { get; set; }
+    [SerializeField] public int CompletionRequirement { get; set; }
 }

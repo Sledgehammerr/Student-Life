@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[Serializable]
 public class StoreButton : Button
 {
     public Item CurrentItem;

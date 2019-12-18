@@ -9,8 +9,6 @@ public class MainMenu : MonoBehaviour
 
     public TMP_InputField inputUserName;
 
-    public SaveLoadManager manager;
-
     private Player player;
 
     public void Start()
@@ -22,7 +20,7 @@ public class MainMenu : MonoBehaviour
     public void PlayButton()
     {
         menu.SetActive(false);
-        if (manager.TryLoad())
+        if (SaveLoadManager.TryLoad())
         {
             SceneManager.LoadScene(1);
         }
@@ -49,7 +47,7 @@ public class MainMenu : MonoBehaviour
 
             player.UserName = inputUserName.text;
             player.Init();
-            manager.SaveGame();
+            SaveLoadManager.SaveGame();
             SceneManager.LoadScene(1);
             
         }

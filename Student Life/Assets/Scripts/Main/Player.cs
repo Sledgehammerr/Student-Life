@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private int satiety;
     private int stamina;
     private int partsDay;
+    public HomeWork currentHomeWork;
     public DateTime Date { get; set; }
     private double grade;
     public static Player playerInstance { get; set; }
@@ -128,20 +129,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void ChangeStat(int money, int health, int satiety, int stamina)
-    {
-        if (Money + money > 0)
-        {
-            Money += money;
-            Health += health;
-            Satiety += satiety;
-            Stamina += stamina;
-        }
-        //else TODO: message()
-
-
-    }
-
     public void Init()
     {
         Date = DateTime.Now;
@@ -151,7 +138,7 @@ public class Player : MonoBehaviour
         Satiety = 100;
         Stamina = 100;
         PartsDay = 1;
-        grade = 3;
+        grade = 5.0;
     }
 
     public void Buy(Item item)
