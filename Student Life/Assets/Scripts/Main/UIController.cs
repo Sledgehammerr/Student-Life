@@ -40,8 +40,12 @@ public class UIController : MonoBehaviour
         textDate.text = Game.CurrentPlayer.Date.Day + "." + Game.CurrentPlayer.Date.Month + "." + Game.CurrentPlayer.Date.Year;
         textPart.text = Game.CurrentPlayer.PartsDay + "/3";
         //*TODO:
-        textStudyCount.text = Game.CurrentPlayer.currentHomeWork.CompletionTime.ToString();
-        textStudyTimeReq.text = Game.CurrentPlayer.currentHomeWork.CompletionRequirement.ToString();
+        if (Game.CurrentPlayer.currentHomeWork != null)
+        {
+            textStudyCount.text = Game.CurrentPlayer.currentHomeWork.CompletionTime.ToString();
+            textStudyTimeReq.text = Game.CurrentPlayer.currentHomeWork.CompletionRequirement.ToString();
+        }
+        
         
     }
 

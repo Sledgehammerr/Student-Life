@@ -7,4 +7,7 @@ public abstract class Task : ScriptableObject
     [SerializeField] public string Name;
     [SerializeField] public int CompletionTime { get; set; }
     [SerializeField] public int CompletionRequirement { get; set; }
+
+    public virtual void CompleteTask() { }
+    public virtual void FailTask() { }
 }

@@ -16,8 +16,12 @@ public class GameMenu : MonoBehaviour
 
     //void Update()
     //{
-        
+
     //}
+    void Start()
+    {
+        Game.CurrentGameMenu = this;
+    }
 
     public void SleepButton()
     {
