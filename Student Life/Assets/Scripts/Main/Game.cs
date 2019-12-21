@@ -17,29 +17,11 @@ public static class Game
         CurrentUIController.UpdateUI();
     }
 
-    //public static void GenerateTask(Task task)
-    //{
-    //    if (task is HomeWork)
-    //    {
-    //        HomeWork homeWork = task as HomeWork;
-    //        homeWork.Name = "Домашняя работа";
-    //        homeWork.CompletionTime = 4;
-    //        homeWork.CompletionRequirement = 7;
-    //        CurrentPlayer.currentHomeWork = homeWork;
-    //    }
-    //    //if (task is Work)
-    //    //{
-    //    //    System.Random random = new System.Random();
-    //    //}
-    //}
-
     public static void DoTask(Task task)
     {
         ChangeStat(0, 0, -10, -10);
         task.CompletionTime--;
         TimeIncrease();
-        
-        
     }
 
     public static void TimeIncrease()
@@ -52,8 +34,6 @@ public static class Game
 
         if (CurrentPlayer.currentHomeWork != null)
         {
-
-
             if (CurrentPlayer.currentHomeWork.CompletionRequirement != 0)
             {
                 CurrentPlayer.currentHomeWork.CompletionRequirement--;
@@ -77,7 +57,7 @@ public static class Game
         {
             if (CurrentPlayer.currentHomeWork == null)
             {
-                Debug.Log("Task");
+                Debug.Log("Homework");
                 CurrentPlayer.currentHomeWork = ScriptableObject.CreateInstance<HomeWork>();
                 CurrentPlayer.currentHomeWork.Init();
             }

@@ -3,21 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class GameMenu : MonoBehaviour
 {
-    public GameObject JobPanel;
+    public GameObject WorkListPanel;
+    public GameObject WorkPanel;
     public GameObject ShopPanel;
     public GameObject StudyPanel;
 
-    //private Player player;
-
-    //void Start()
-    //{
-    //    player = GameObject.Find("Player").GetComponent<Player>();
-    //}
-
-    //void Update()
-    //{
-
-    //}
     void Start()
     {
         Game.CurrentGameMenu = this;
@@ -42,7 +32,8 @@ public class GameMenu : MonoBehaviour
             else
             {
                 StudyPanel.SetActive(true);
-                JobPanel.SetActive(false);
+                WorkListPanel.SetActive(false);
+                WorkPanel.SetActive(false);
                 ShopPanel.SetActive(false);
             }
         }
@@ -53,17 +44,35 @@ public class GameMenu : MonoBehaviour
         }
     }
 
-    public void JobButton()
+    public void WorkButton()
     {
-        if (JobPanel.activeSelf)
+        if (Game.CurrentPlayer.currentWork == null)
         {
-            JobPanel.SetActive(false);
+            Debug.Log("No work");
+            if (WorkListPanel.activeSelf)
+            {
+                WorkListPanel.SetActive(false);
+            }
+            else
+            {
+                StudyPanel.SetActive(false);
+                WorkListPanel.SetActive(true);
+                ShopPanel.SetActive(false);
+            }
         }
         else
         {
-            StudyPanel.SetActive(false);
-            JobPanel.SetActive(true);
-            ShopPanel.SetActive(false);
+            Debug.Log("Work");
+            if (WorkPanel.activeSelf)
+            {
+                WorkPanel.SetActive(false);
+            }
+            else
+            {
+                StudyPanel.SetActive(false);
+                WorkPanel.SetActive(true);
+                ShopPanel.SetActive(false);
+            }
         }
     }
 
@@ -76,7 +85,8 @@ public class GameMenu : MonoBehaviour
         else
         {
             StudyPanel.SetActive(false);
-            JobPanel.SetActive(false);
+            WorkListPanel.SetActive(false);
+            WorkPanel.SetActive(false);
             ShopPanel.SetActive(true);
         }
     }
@@ -86,6 +96,4 @@ public class GameMenu : MonoBehaviour
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(0);
     }
-
-
 }

@@ -16,6 +16,8 @@ public class UIController : MonoBehaviour
     //public TextMeshProUGUI textStamina;
     public TextMeshProUGUI textStudyCount;
     public TextMeshProUGUI textStudyTimeReq;
+    public TextMeshProUGUI textWorkCount;
+    public TextMeshProUGUI textWorkTimeReq;
     public TextMeshProUGUI textDate;
     public TextMeshProUGUI textPart;
 
@@ -45,8 +47,11 @@ public class UIController : MonoBehaviour
             textStudyCount.text = Game.CurrentPlayer.currentHomeWork.CompletionTime.ToString();
             textStudyTimeReq.text = Game.CurrentPlayer.currentHomeWork.CompletionRequirement.ToString();
         }
-        
-        
+        if (Game.CurrentPlayer.currentWork != null)
+        {
+            textWorkCount.text = Game.CurrentPlayer.currentHomeWork.CompletionTime.ToString();
+            textWorkTimeReq.text = Game.CurrentPlayer.currentHomeWork.CompletionRequirement.ToString();
+        }
     }
 
     public void Message(string message)

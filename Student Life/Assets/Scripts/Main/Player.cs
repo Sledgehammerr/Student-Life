@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private int stamina;
     private int partsDay;
     public HomeWork currentHomeWork;
+    public Work currentWork;
     public DateTime Date { get; set; }
     private double grade;
     public static Player playerInstance { get; set; }
