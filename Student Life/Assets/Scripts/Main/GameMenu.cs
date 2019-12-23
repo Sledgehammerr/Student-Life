@@ -8,6 +8,7 @@ public class GameMenu : MonoBehaviour
     public GameObject ShopPanel;
     public GameObject StudyPanel;
 
+
     void Start()
     {
         Game.CurrentGameMenu = this;
@@ -93,6 +94,7 @@ public class GameMenu : MonoBehaviour
 
     public void EndGame()
     {
+        //ScriptableObject.
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(0);
     }

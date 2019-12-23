@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - CurrentWorkButton
     - Food
     - GameMenu
     - MainMenu
@@ -9,6 +10,10 @@ ScriptsOnlyBuild:
     - StoreButton
     - StudyButton
     - UIController
+    - WorkAcceptButton
+    - WorkController
+    - WorkListController
+    - WorkPanel
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -32,9 +37,14 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.ContentSizeFitter
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Mask
     - UnityEngine.UI.RectMask2D
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
+    - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
     Assets/Scenes/Main.unity:
     - Class: 1
@@ -56,35 +66,55 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9696}
     - Class: 114
+      Script: {instanceID: 9860}
+    - Class: 114
       Script: {instanceID: 9900}
     - Class: 114
       Script: {instanceID: 9906}
     - Class: 114
-      Script: {instanceID: 10128}
+      Script: {instanceID: 10004}
     - Class: 114
-      Script: {instanceID: 10184}
+      Script: {instanceID: 10130}
     - Class: 114
-      Script: {instanceID: 10258}
+      Script: {instanceID: 10186}
     - Class: 114
-      Script: {instanceID: 10316}
+      Script: {instanceID: 10212}
     - Class: 114
-      Script: {instanceID: 10698}
+      Script: {instanceID: 10260}
     - Class: 114
-      Script: {instanceID: 10846}
+      Script: {instanceID: 10318}
     - Class: 114
-      Script: {instanceID: 10930}
+      Script: {instanceID: 10470}
     - Class: 114
-      Script: {instanceID: 11008}
+      Script: {instanceID: 10502}
     - Class: 114
-      Script: {instanceID: 11142}
+      Script: {instanceID: 10518}
     - Class: 114
-      Script: {instanceID: 11206}
+      Script: {instanceID: 10556}
     - Class: 114
-      Script: {instanceID: 11512}
+      Script: {instanceID: 10708}
     - Class: 114
-      Script: {instanceID: 11548}
+      Script: {instanceID: 10800}
     - Class: 114
-      Script: {instanceID: 11606}
+      Script: {instanceID: 10856}
+    - Class: 114
+      Script: {instanceID: 10942}
+    - Class: 114
+      Script: {instanceID: 11020}
+    - Class: 114
+      Script: {instanceID: 11154}
+    - Class: 114
+      Script: {instanceID: 11218}
+    - Class: 114
+      Script: {instanceID: 11380}
+    - Class: 114
+      Script: {instanceID: 11510}
+    - Class: 114
+      Script: {instanceID: 11528}
+    - Class: 114
+      Script: {instanceID: 11564}
+    - Class: 114
+      Script: {instanceID: 11622}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -129,31 +159,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9924}
     - Class: 114
-      Script: {instanceID: 10108}
+      Script: {instanceID: 10110}
     - Class: 114
-      Script: {instanceID: 10316}
+      Script: {instanceID: 10318}
     - Class: 114
-      Script: {instanceID: 10338}
+      Script: {instanceID: 10340}
     - Class: 114
-      Script: {instanceID: 10698}
+      Script: {instanceID: 10708}
     - Class: 114
-      Script: {instanceID: 10910}
+      Script: {instanceID: 10920}
     - Class: 114
-      Script: {instanceID: 10930}
+      Script: {instanceID: 10942}
     - Class: 114
-      Script: {instanceID: 10944}
+      Script: {instanceID: 10956}
     - Class: 114
-      Script: {instanceID: 11142}
+      Script: {instanceID: 11154}
     - Class: 114
-      Script: {instanceID: 11206}
+      Script: {instanceID: 11218}
     - Class: 114
-      Script: {instanceID: 11388}
+      Script: {instanceID: 11402}
     - Class: 114
-      Script: {instanceID: 11502}
+      Script: {instanceID: 11518}
     - Class: 114
-      Script: {instanceID: 11548}
+      Script: {instanceID: 11564}
     - Class: 114
-      Script: {instanceID: 11606}
+      Script: {instanceID: 11622}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -333,7 +363,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 44b3c553c1bd93ee2f7f20dbe6b8a610
+      Hash: cc6be44eabea4f2fef787138240f514a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIController
@@ -351,7 +381,7 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: d8e481125b476079a10c3c573c1e2762
+      Hash: 1cbf35fcee5535286d14a2b018ed1b09
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameMenu
@@ -423,6 +453,12 @@ ScriptsOnlyBuild:
     className: Benchmark01
   - hash:
       serializedVersion: 2
+      Hash: ca7d622b41d4975da55830ba2cd5ce07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WorkListController
+  - hash:
+      serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -435,6 +471,18 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
+      Hash: 1c947d51348768ce59501bf675cd6bef
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WorkPanel
+  - hash:
+      serializedVersion: 2
+      Hash: 1df5043f0424ac97346ea8f965958921
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIMenu
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -445,6 +493,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: CameraController
+  - hash:
+      serializedVersion: 2
+      Hash: 31ff68c5b3d27bcfe1b4f14308bc8729
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CurrentWorkButton
   - hash:
       serializedVersion: 2
       Hash: e63944317d2f5958e31963668bb29158
@@ -609,7 +663,7 @@ ScriptsOnlyBuild:
     className: TMP_TextInfoDebugTool
   - hash:
       serializedVersion: 2
-      Hash: c88c4199b288356ec3eb2f0d85abc619
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HomeWork
@@ -711,6 +765,12 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
+      Hash: 48792ac27d3c78db32cb7f0e773eae2d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WorkController
+  - hash:
+      serializedVersion: 2
       Hash: d791aa6007fa3640be1164ea75bb087d
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -739,6 +799,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshPro
+  - hash:
+      serializedVersion: 2
+      Hash: 31ff68c5b3d27bcfe1b4f14308bc8729
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WorkAcceptButton
   - hash:
       serializedVersion: 2
       Hash: 3165968ba45c74472d279ba04455fccb
@@ -777,7 +843,7 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
-      Hash: 2917e5746ed14b6f98042b16ba6566a0
+      Hash: aa79ead35118e11a64a9013bdae1746f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -835,6 +901,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Slider
+  - hash:
+      serializedVersion: 2
+      Hash: adf037df5e7e5b77c785807703018dd2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIScreen
   - hash:
       serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030

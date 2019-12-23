@@ -21,8 +21,8 @@ public class WorkPanel : MonoBehaviour
         Debug.Log(Button.CurrentWork.ToString());
     }
 
-    void Update()
+    void OnDestroy()
     {
-        
+        Destroy(Button.CurrentWork);
     }
 }

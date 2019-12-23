@@ -9,9 +9,15 @@ public class WorkAcceptButton : Button
     public Work CurrentWork;
     public void Awake()
     {
-        //onClick.AddListener(ButtonClicked);
+        onClick.AddListener(ButtonClicked);
     }
 
-
-    //public void ButtonClicked() => Game.CurrentPlayer.Buy(CurrentWork);
+    public void ButtonClicked()
+    {
+        Game.CurrentPlayer.currentWork = CurrentWork;
+        Game.CurrentGameMenu.WorkListPanel.SetActive(false);
+        Game.CurrentGameMenu.WorkPanel.SetActive(true);
+        ///
+        Game.CurrentUIController.UpdateUI();
+    }
 }

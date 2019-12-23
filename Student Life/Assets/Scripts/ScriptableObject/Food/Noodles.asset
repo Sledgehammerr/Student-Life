@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b8fee147053834a995ef8a6a246eb1, type: 3}
   m_Name: Noodles
   m_EditorClassIdentifier: 
-  Name: 
+  Name: "\u041B\u0430\u043F\u0448\u0430"
   Price: 30
   Health: -5
   Satiety: 15

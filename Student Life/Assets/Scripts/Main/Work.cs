@@ -10,12 +10,11 @@ public class Work : Task
     private static System.Random random = new System.Random();
     public int Reward { get; private set; }
 
-
     public override void Init()
     {
         Name = NameList[random.Next(0, 4)];
         CompletionTime = random.Next(3, 8);
-        CompletionRequirement = CompletionTime * 3;
+        CompletionRequirement = CompletionTime * 2;
         Reward = CompletionTime * 100;
     }
 
@@ -24,6 +23,7 @@ public class Work : Task
         Debug.Log("Work complete");
         Game.CurrentPlayer.Money += Reward;
         Destroy(this);
+        Game.CurrentPlayer.currentWork = null;
     }
 
     public override void FailTask()
@@ -31,6 +31,7 @@ public class Work : Task
         Debug.Log("Work failed");
         Game.CurrentPlayer.Money -= Reward / 2;
         Destroy(this);
+        Game.CurrentPlayer.currentWork = null;
     }
 
 }

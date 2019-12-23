@@ -16,8 +16,9 @@ public class UIController : MonoBehaviour
     //public TextMeshProUGUI textStamina;
     public TextMeshProUGUI textStudyCount;
     public TextMeshProUGUI textStudyTimeReq;
-    public TextMeshProUGUI textWorkCount;
-    public TextMeshProUGUI textWorkTimeReq;
+    public WorkController workController;
+    //public TextMeshProUGUI textWorkCount;
+    //public TextMeshProUGUI textWorkTimeReq;
     public TextMeshProUGUI textDate;
     public TextMeshProUGUI textPart;
 
@@ -36,9 +37,6 @@ public class UIController : MonoBehaviour
         barHealth.GetComponent<Image>().fillAmount = (float)Game.CurrentPlayer.Health / 100;
         barSatiety.GetComponent<Image>().fillAmount = (float)Game.CurrentPlayer.Satiety / 100;
         barStamina.GetComponent<Image>().fillAmount = (float)Game.CurrentPlayer.Stamina / 100;
-        //textHealth.text = Game.CurrentPlayer.Health.ToString();
-        //textSatiety.text = Game.CurrentPlayer.Satiety.ToString();
-        //textStamina.text = Game.CurrentPlayer.Stamina.ToString();
         textDate.text = Game.CurrentPlayer.Date.Day + "." + Game.CurrentPlayer.Date.Month + "." + Game.CurrentPlayer.Date.Year;
         textPart.text = Game.CurrentPlayer.PartsDay + "/3";
         //*TODO:
@@ -49,9 +47,11 @@ public class UIController : MonoBehaviour
         }
         if (Game.CurrentPlayer.currentWork != null)
         {
-            textWorkCount.text = Game.CurrentPlayer.currentHomeWork.CompletionTime.ToString();
-            textWorkTimeReq.text = Game.CurrentPlayer.currentHomeWork.CompletionRequirement.ToString();
+            //textWorkCount.text = Game.CurrentPlayer.currentHomeWork.CompletionTime.ToString();
+            //textWorkTimeReq.text = Game.CurrentPlayer.currentHomeWork.CompletionRequirement.ToString();
+            workController.UpdateUI();
         }
+        
     }
 
     public void Message(string message)

@@ -6,6 +6,7 @@ public static class Game
     public static Player CurrentPlayer = Player.playerInstance;
     public static UIController CurrentUIController;
     public static GameMenu CurrentGameMenu;
+    public static WorkListController ListController;
 
 
     public static void ChangeStat(int money, int health, int satiety, int stamina)
@@ -50,6 +51,31 @@ public static class Game
                 CurrentPlayer.currentHomeWork.FailTask();
                 Debug.Log("Grade: " + CurrentPlayer.Grade);
                 CurrentGameMenu.StudyPanel.SetActive(false);
+            }
+        }
+
+        if (CurrentPlayer.currentWork != null)
+        {
+            if (CurrentPlayer.currentWork.CompletionRequirement != 0)
+            {
+                CurrentPlayer.currentWork.CompletionRequirement--;
+            }
+
+            if (CurrentPlayer.currentWork.CompletionTime == 0)
+            {
+                CurrentPlayer.currentWork.CompleteTask();
+                CurrentGameMenu.WorkPanel.SetActive(false);
+                ListController.Generate();
+                ScriptableObject.Destroy(CurrentPlayer.currentWork);
+                CurrentPlayer.currentWork = null;
+            }
+            else if (CurrentPlayer.currentWork.CompletionRequirement == 0)
+            {
+                CurrentPlayer.currentWork.FailTask();
+                CurrentGameMenu.WorkPanel.SetActive(false);
+                ListController.Generate();
+                ScriptableObject.Destroy(CurrentPlayer.currentWork);
+                CurrentPlayer.currentWork = null;
             }
         }
 

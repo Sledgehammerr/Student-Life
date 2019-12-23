@@ -6,11 +6,14 @@ using UnityEngine.UI;
 
 public class CurrentWorkButton : Button
 {
-    public Item CurrentItem;
+    public Work CurrentWork;
     public void Awake()
     {
         onClick.AddListener(ButtonClicked);
     }
 
-    public void ButtonClicked() => Game.CurrentPlayer.Buy(CurrentItem);
+    public void ButtonClicked()
+    {
+        Game.DoTask(CurrentWork);
+    }
 }

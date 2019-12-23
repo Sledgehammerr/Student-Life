@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b8fee147053834a995ef8a6a246eb1, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
-  Name: 
+  Name: "\u042F\u0431\u043B\u043E\u043A\u043E"
   Price: 30
   Health: 10
   Satiety: 5
