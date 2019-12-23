@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
-public class UIButton
+public class UIButton : Button
 {
     public string Name;
-    public UnityEvent unityEvent;
+    
 }

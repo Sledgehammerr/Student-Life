@@ -11,17 +11,13 @@ public class UIController : MonoBehaviour
     public GameObject barHealth;
     public GameObject barSatiety;
     public GameObject barStamina;
-    //public TextMeshProUGUI textHealth;
-    //public TextMeshProUGUI textSatiety;
-    //public TextMeshProUGUI textStamina;
     public TextMeshProUGUI textStudyCount;
     public TextMeshProUGUI textStudyTimeReq;
     public WorkController workController;
-    //public TextMeshProUGUI textWorkCount;
-    //public TextMeshProUGUI textWorkTimeReq;
     public TextMeshProUGUI textDate;
     public TextMeshProUGUI textPart;
 
+    public MessageController messageController;
     public GameObject EndGame;
 
     void Start()
@@ -47,16 +43,11 @@ public class UIController : MonoBehaviour
         }
         if (Game.CurrentPlayer.currentWork != null)
         {
-            //textWorkCount.text = Game.CurrentPlayer.currentHomeWork.CompletionTime.ToString();
-            //textWorkTimeReq.text = Game.CurrentPlayer.currentHomeWork.CompletionRequirement.ToString();
             workController.UpdateUI();
         }
         
     }
 
-    public void Message(string message)
-    {
-        //do something
-    }
+    
 
 }

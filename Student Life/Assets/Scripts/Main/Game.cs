@@ -25,6 +25,11 @@ public static class Game
         TimeIncrease();
     }
 
+    public static void Message(string message)
+    {
+        CurrentUIController.messageController.Message(message);
+    }
+
     public static void TimeIncrease()
     {
         CurrentPlayer.PartsDay++;
@@ -83,7 +88,7 @@ public static class Game
         {
             if (CurrentPlayer.currentHomeWork == null)
             {
-                Debug.Log("Homework");
+                Message("HomeWork");
                 CurrentPlayer.currentHomeWork = ScriptableObject.CreateInstance<HomeWork>();
                 CurrentPlayer.currentHomeWork.Init();
             }

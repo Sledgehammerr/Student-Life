@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIData 
+public class UIData
 {
     public string name;
     public string content;

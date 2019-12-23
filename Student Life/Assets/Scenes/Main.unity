@@ -1261,7 +1261,6 @@ MonoBehaviour:
   FoodPrefab: {fileID: 5851123281024669745, guid: 417394c99e187a64680b393b972ab709,
     type: 3}
   Content: {fileID: 542102728}
-  ListFoodPrefab: []
   ItemList:
   - {fileID: 11400000, guid: 393745626b7ac9b4d81923cf60ee7e72, type: 2}
   - {fileID: 11400000, guid: 4d1d082e95415f4439ec1d809f6aaeee, type: 2}
@@ -5771,7 +5770,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1089061759}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1731961575}
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1089061759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8563,6 +8573,7 @@ GameObject:
   - component: {fileID: 1731961572}
   - component: {fileID: 1731961574}
   - component: {fileID: 1731961573}
+  - component: {fileID: 1731961575}
   m_Layer: 5
   m_Name: MessagePanel
   m_TagString: Untagged
@@ -8626,6 +8637,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731961571}
   m_CullTransparentMesh: 0
+--- !u!114 &1731961575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731961571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc260d3fb6ea364eaa613f6bcafa586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 1731961571}
+  Text: {fileID: 14484250}
 --- !u!1 &1744852185
 GameObject:
   m_ObjectHideFlags: 0
@@ -9491,6 +9516,7 @@ MonoBehaviour:
   workController: {fileID: 1514447301}
   textDate: {fileID: 381899599}
   textPart: {fileID: 239348520}
+  messageController: {fileID: 1731961575}
   EndGame: {fileID: 1495146151}
 --- !u!1 &2103010890
 GameObject:

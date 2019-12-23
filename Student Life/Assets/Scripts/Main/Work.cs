@@ -20,7 +20,6 @@ public class Work : Task
 
     public override void CompleteTask()
     {
-        Debug.Log("Work complete");
         Game.CurrentPlayer.Money += Reward;
         Destroy(this);
         Game.CurrentPlayer.currentWork = null;
@@ -28,7 +27,6 @@ public class Work : Task
 
     public override void FailTask()
     {
-        Debug.Log("Work failed");
         Game.CurrentPlayer.Money -= Reward / 2;
         Destroy(this);
         Game.CurrentPlayer.currentWork = null;

@@ -18,7 +18,6 @@ public class WorkPanel : MonoBehaviour
         Count.text = Button.CurrentWork.CompletionTime.ToString();
         Req.text = Button.CurrentWork.CompletionRequirement.ToString();
         Money.text = Button.CurrentWork.Reward.ToString();
-        Debug.Log(Button.CurrentWork.ToString());
     }
 
     void OnDestroy()
