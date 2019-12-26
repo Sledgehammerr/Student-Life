@@ -11,9 +11,10 @@ public class MainMenu : MonoBehaviour
 
     private Player player;
 
-    public void Start()
+    void Start()
     {
         Screen.orientation = ScreenOrientation.Portrait;
+        Application.targetFrameRate = 60;
         player = GameObject.Find("Player").GetComponent<Player>();
     }
 
@@ -44,7 +45,6 @@ public class MainMenu : MonoBehaviour
     {
         if (inputUserName.text.Length > 3 && inputUserName.text.Length < 15)
         {
-
             player.UserName = inputUserName.text;
             player.Init();
             SaveLoadManager.SaveGame();

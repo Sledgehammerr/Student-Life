@@ -8,7 +8,6 @@ public class GameMenu : MonoBehaviour
     public GameObject ShopPanel;
     public GameObject StudyPanel;
 
-
     void Start()
     {
         Game.CurrentGameMenu = this;
@@ -16,8 +15,6 @@ public class GameMenu : MonoBehaviour
 
     public void SleepButton()
     {
-        //player.ChangeStat(0, 20, -10, 50);
-        //player.PartsOfDay++;
         Game.ChangeStat(0, 20, -10, 50);
         Game.TimeIncrease();
     }
@@ -40,8 +37,7 @@ public class GameMenu : MonoBehaviour
         }
         else
         {
-            //Game.CurrentUIController.Message("У вас нет домашних заданий");
-            Debug.Log("У вас нет домашних заданий");
+            Game.Message("У вас нет домашних заданий");
         }
     }
 
@@ -94,7 +90,6 @@ public class GameMenu : MonoBehaviour
 
     public void EndGame()
     {
-        //ScriptableObject.
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(0);
     }

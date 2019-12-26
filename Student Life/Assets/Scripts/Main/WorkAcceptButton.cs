@@ -17,7 +17,6 @@ public class WorkAcceptButton : Button
         Game.CurrentPlayer.currentWork = CurrentWork;
         Game.CurrentGameMenu.WorkListPanel.SetActive(false);
         Game.CurrentGameMenu.WorkPanel.SetActive(true);
-        ///
         Game.CurrentUIController.UpdateUI();
     }
 }

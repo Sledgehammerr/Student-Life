@@ -2,11 +2,14 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CurrentWorkButton
+    - FPSDisplay
     - Food
+    - FoodListController
+    - FoodPanel
     - GameMenu
     - MainMenu
+    - MessageController
     - Player
-    - Store
     - StoreButton
     - StudyButton
     - UIController
@@ -76,45 +79,51 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10130}
     - Class: 114
-      Script: {instanceID: 10186}
+      Script: {instanceID: 10178}
     - Class: 114
-      Script: {instanceID: 10212}
+      Script: {instanceID: 10188}
     - Class: 114
-      Script: {instanceID: 10260}
+      Script: {instanceID: 10214}
     - Class: 114
-      Script: {instanceID: 10318}
+      Script: {instanceID: 10262}
     - Class: 114
-      Script: {instanceID: 10470}
+      Script: {instanceID: 10264}
     - Class: 114
-      Script: {instanceID: 10502}
+      Script: {instanceID: 10322}
     - Class: 114
-      Script: {instanceID: 10518}
+      Script: {instanceID: 10474}
     - Class: 114
-      Script: {instanceID: 10556}
+      Script: {instanceID: 10506}
     - Class: 114
-      Script: {instanceID: 10708}
+      Script: {instanceID: 10522}
     - Class: 114
-      Script: {instanceID: 10800}
+      Script: {instanceID: 10560}
     - Class: 114
-      Script: {instanceID: 10856}
+      Script: {instanceID: 10712}
     - Class: 114
-      Script: {instanceID: 10942}
+      Script: {instanceID: 10804}
     - Class: 114
-      Script: {instanceID: 11020}
+      Script: {instanceID: 10860}
     - Class: 114
-      Script: {instanceID: 11154}
+      Script: {instanceID: 10946}
     - Class: 114
-      Script: {instanceID: 11218}
+      Script: {instanceID: 11024}
     - Class: 114
-      Script: {instanceID: 11380}
+      Script: {instanceID: 11158}
     - Class: 114
-      Script: {instanceID: 11510}
+      Script: {instanceID: 11222}
     - Class: 114
-      Script: {instanceID: 11528}
+      Script: {instanceID: 11384}
     - Class: 114
-      Script: {instanceID: 11564}
+      Script: {instanceID: 11514}
     - Class: 114
-      Script: {instanceID: 11622}
+      Script: {instanceID: 11532}
+    - Class: 114
+      Script: {instanceID: 11568}
+    - Class: 114
+      Script: {instanceID: 11626}
+    - Class: 114
+      Script: {instanceID: 15788}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -161,29 +170,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10110}
     - Class: 114
-      Script: {instanceID: 10318}
+      Script: {instanceID: 10322}
     - Class: 114
-      Script: {instanceID: 10340}
+      Script: {instanceID: 10344}
     - Class: 114
-      Script: {instanceID: 10708}
+      Script: {instanceID: 10712}
     - Class: 114
-      Script: {instanceID: 10920}
+      Script: {instanceID: 10924}
     - Class: 114
-      Script: {instanceID: 10942}
+      Script: {instanceID: 10946}
     - Class: 114
-      Script: {instanceID: 10956}
+      Script: {instanceID: 10960}
     - Class: 114
-      Script: {instanceID: 11154}
+      Script: {instanceID: 11158}
     - Class: 114
-      Script: {instanceID: 11218}
+      Script: {instanceID: 11222}
     - Class: 114
-      Script: {instanceID: 11402}
+      Script: {instanceID: 11406}
     - Class: 114
-      Script: {instanceID: 11518}
+      Script: {instanceID: 11522}
     - Class: 114
-      Script: {instanceID: 11564}
+      Script: {instanceID: 11568}
     - Class: 114
-      Script: {instanceID: 11622}
+      Script: {instanceID: 11626}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -363,7 +372,13 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: cc6be44eabea4f2fef787138240f514a
+      Hash: 576d1d744b004905ea4574e7b94a4527
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MessageController
+  - hash:
+      serializedVersion: 2
+      Hash: 14452a3f29d44dfe7258a869231abcc2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIController
@@ -385,6 +400,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameMenu
+  - hash:
+      serializedVersion: 2
+      Hash: ee5fa5b3141fb5bdefecbe87c2906bfc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FoodPanel
   - hash:
       serializedVersion: 2
       Hash: 4d16cfbaa8e821a2b370e80844a0e9bc
@@ -477,7 +498,7 @@ ScriptsOnlyBuild:
     className: WorkPanel
   - hash:
       serializedVersion: 2
-      Hash: 1df5043f0424ac97346ea8f965958921
+      Hash: 294b7f8d3b3aaa1dfc3da330c864b48b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIMenu
@@ -583,6 +604,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MainMenu
+  - hash:
+      serializedVersion: 2
+      Hash: f0cec876c8711b0f651c6e36329624db
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIButton
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -813,10 +840,10 @@ ScriptsOnlyBuild:
     className: TMP_ColorGradient
   - hash:
       serializedVersion: 2
-      Hash: 5f66febb5a3dcd0d0b0ac0d189c34cbd
+      Hash: 22f7f9b7d16830abbc049ffee0e4f145
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Store
+    className: FoodListController
   - hash:
       serializedVersion: 2
       Hash: 0784d4fd5b93bd75440d01eb2fac4233
@@ -903,7 +930,7 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
-      Hash: adf037df5e7e5b77c785807703018dd2
+      Hash: 64850f03bd565f35d465c452733d47b0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIScreen
@@ -919,6 +946,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FPSDisplay
   platform: 13
   scenePathNames:
   - Assets/Scenes/Menu.unity

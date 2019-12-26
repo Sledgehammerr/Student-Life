@@ -5,14 +5,14 @@ using UnityEngine;
 public class Work : Task
 {
     public string Name;
-    public static List<string> NameList { get; private set; } = new List<string>() { "Работа0", "Работа1", "Работа2", "Работа3", "Работа4" };
+    public static List<string> NameList { get; private set; } = new List<string>() { "Продавец", "Оператор", "Сборщик", "Менеджер", "Фасовщик", "Водитель", "Грузчик", "Охранник" };
 
     private static System.Random random = new System.Random();
     public int Reward { get; private set; }
 
     public override void Init()
     {
-        Name = NameList[random.Next(0, 4)];
+        Name = NameList[random.Next(0, NameList.Count)];
         CompletionTime = random.Next(3, 8);
         CompletionRequirement = CompletionTime * 2;
         Reward = CompletionTime * 100;
@@ -28,6 +28,7 @@ public class Work : Task
     public override void FailTask()
     {
         Game.CurrentPlayer.Money -= Reward / 2;
+        Game.Message($"Работа не выполнена, штраф {Reward / 2}");
         Destroy(this);
         Game.CurrentPlayer.currentWork = null;
     }

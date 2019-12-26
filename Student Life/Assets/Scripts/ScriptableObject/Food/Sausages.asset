@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b8fee147053834a995ef8a6a246eb1, type: 3}
+  m_Name: Sausages
+  m_EditorClassIdentifier: 
+  Name: "\u0421\u043E\u0441\u0438\u0441\u043A\u0438"
+  Price: 50
+  Health: 10
+  Satiety: 35
+  Stamina: 5

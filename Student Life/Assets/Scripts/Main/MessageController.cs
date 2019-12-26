@@ -7,7 +7,6 @@ public class MessageController : MonoBehaviour
 {
     public GameObject Panel;
     public TextMeshProUGUI Text;
-    //public GameObject Button;
 
     public void Message(string text)
     {

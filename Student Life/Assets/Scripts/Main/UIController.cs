@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class UIController : MonoBehaviour
@@ -26,6 +27,14 @@ public class UIController : MonoBehaviour
         UpdateUI();
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+
     public void UpdateUI()
     {
         textUserName.text = Game.CurrentPlayer.UserName;
@@ -35,19 +44,16 @@ public class UIController : MonoBehaviour
         barStamina.GetComponent<Image>().fillAmount = (float)Game.CurrentPlayer.Stamina / 100;
         textDate.text = Game.CurrentPlayer.Date.Day + "." + Game.CurrentPlayer.Date.Month + "." + Game.CurrentPlayer.Date.Year;
         textPart.text = Game.CurrentPlayer.PartsDay + "/3";
-        //*TODO:
+
         if (Game.CurrentPlayer.currentHomeWork != null)
         {
             textStudyCount.text = Game.CurrentPlayer.currentHomeWork.CompletionTime.ToString();
             textStudyTimeReq.text = Game.CurrentPlayer.currentHomeWork.CompletionRequirement.ToString();
         }
+
         if (Game.CurrentPlayer.currentWork != null)
         {
             workController.UpdateUI();
         }
-        
     }
-
-    
-
 }

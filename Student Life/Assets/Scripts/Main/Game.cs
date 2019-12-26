@@ -8,7 +8,6 @@ public static class Game
     public static GameMenu CurrentGameMenu;
     public static WorkListController ListController;
 
-
     public static void ChangeStat(int money, int health, int satiety, int stamina)
     {
         CurrentPlayer.Money += money;
@@ -88,17 +87,16 @@ public static class Game
         {
             if (CurrentPlayer.currentHomeWork == null)
             {
-                Message("HomeWork");
+                Message("У вас появилось Д/З");
                 CurrentPlayer.currentHomeWork = ScriptableObject.CreateInstance<HomeWork>();
                 CurrentPlayer.currentHomeWork.Init();
             }
-            Debug.Log("Save");
             SaveLoadManager.SaveGame();
         }
 
         if (CurrentPlayer.Date.Day == 1 && CurrentPlayer.PartsDay == 1 && CurrentPlayer.Grade >= 4f)
         {
-            Debug.Log("Money");
+            Message($"Стипендия - {500 * (int)(CurrentPlayer.Grade - 3.0)}");
             ChangeStat(500 * (int)(CurrentPlayer.Grade - 3.0), 0, 0, 0);
         }
 

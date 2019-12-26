@@ -2,7 +2,7 @@
 
 public class StudyButton : Button
 {
-    public void Awake()
+    void Awake()
     {
         onClick.AddListener(ButtonClicked);
     }
