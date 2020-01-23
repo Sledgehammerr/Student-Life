@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, SavedObject
 {
     public string UserName { get; set; }
     public int Money { get; set; }
@@ -154,4 +154,18 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void Save()
+    {
+        //todo
+        PlayerPrefs.SetString("Username", playerInstance.UserName);
+        PlayerPrefs.SetInt("Money", playerInstance.Money);
+        PlayerPrefs.SetInt("Health", playerInstance.Health);
+        PlayerPrefs.SetInt("Satiety", playerInstance.Satiety);
+        PlayerPrefs.SetInt("Stamina", playerInstance.Stamina);
+        PlayerPrefs.SetInt("Day", playerInstance.Date.Day);
+        PlayerPrefs.SetInt("Month", playerInstance.Date.Month);
+        PlayerPrefs.SetInt("Year", playerInstance.Date.Year);
+        PlayerPrefs.SetInt("PartOfDay", playerInstance.PartsDay);
+        PlayerPrefs.SetFloat("Grade", (float)playerInstance.Grade);
+    }
 }

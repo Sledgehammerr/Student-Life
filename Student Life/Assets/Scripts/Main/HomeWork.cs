@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HomeWork : Task
+public class HomeWork : Task, SavedObject
 {
     public override void Init()
     {
@@ -22,5 +22,12 @@ public class HomeWork : Task
         Game.CurrentPlayer.Grade--;
         Game.Message($"Домашняя работа не выполнена. Ваш текущий балл - {Game.CurrentPlayer.Grade}");
         Destroy(this);
+    }
+
+    public void Save()
+    {
+        //todo 
+        PlayerPrefs.SetInt("CompletionTime", CompletionTime);
+        PlayerPrefs.SetInt("CompletionRequirement", CompletionRequirement);
     }
 }

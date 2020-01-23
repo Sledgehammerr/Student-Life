@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Work : Task
+public class Work : Task, SavedObject
 {
     public string Name;
     public static List<string> NameList { get; private set; } = new List<string>() { "Продавец", "Оператор", "Сборщик", "Менеджер", "Фасовщик", "Водитель", "Грузчик", "Охранник" };
@@ -33,4 +33,9 @@ public class Work : Task
         Game.CurrentPlayer.currentWork = null;
     }
 
+    public void Save()
+    {
+        PlayerPrefs.SetInt("CompletionTime", CompletionTime);
+        PlayerPrefs.SetInt("CompletionRequirement", CompletionRequirement);
+    }
 }

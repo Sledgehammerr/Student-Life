@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorkListController : MonoBehaviour
+public class WorkListController : MonoBehaviour, SavedObject
 {
     public GameObject WorkPrefab;
     public GameObject Content;
@@ -39,5 +39,17 @@ public class WorkListController : MonoBehaviour
         ListWorkPrefab.Clear();
         
         GC.Collect();
+    }
+
+    public void Save()
+    {
+        for (int i = 0; i < ListWorkPrefab.Count; i++)
+        {
+            WorkPanel panel = ListWorkPrefab[i].GetComponent<WorkPanel>();
+            PlayerPrefs.SetString($"Work_Text_{i}", panel.Text.ToString());
+            PlayerPrefs.SetInt($"Work_Count_{i}", Convert.ToInt32(panel.Count.ToString()));
+            PlayerPrefs.SetInt($"Work_Req_{i}", Convert.ToInt32(panel.Req.ToString()));
+            PlayerPrefs.SetInt($"Work_Money_{i}", Convert.ToInt32(panel.Money.ToString()));
+        }
     }
 }

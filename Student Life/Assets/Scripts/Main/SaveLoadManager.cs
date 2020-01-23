@@ -3,6 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+interface SavedObject
+{
+    void Save();
+}
+
 public static class SaveLoadManager
 {
     public static void SaveGame()

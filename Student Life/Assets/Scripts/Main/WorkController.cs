@@ -27,4 +27,5 @@ public class WorkController : MonoBehaviour
         textWorkCount.text = currentWork.CompletionTime.ToString();
         textWorkTimeReq.text = currentWork.CompletionRequirement.ToString();
     }
+
 }
