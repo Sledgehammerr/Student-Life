@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour, SavedObject
+public class Player : MonoBehaviour, ISavedObject, ILoadObject
 {
     public string UserName { get; set; }
     public int Money { get; set; }
@@ -156,7 +156,6 @@ public class Player : MonoBehaviour, SavedObject
 
     public void Save()
     {
-        //todo
         PlayerPrefs.SetString("Username", playerInstance.UserName);
         PlayerPrefs.SetInt("Money", playerInstance.Money);
         PlayerPrefs.SetInt("Health", playerInstance.Health);
@@ -167,5 +166,27 @@ public class Player : MonoBehaviour, SavedObject
         PlayerPrefs.SetInt("Year", playerInstance.Date.Year);
         PlayerPrefs.SetInt("PartOfDay", playerInstance.PartsDay);
         PlayerPrefs.SetFloat("Grade", (float)playerInstance.Grade);
+    }
+
+    public void Load()
+    {
+        playerInstance.UserName = PlayerPrefs.GetString("Username");
+        playerInstance.Money = PlayerPrefs.GetInt("Money");
+        playerInstance.Health = PlayerPrefs.GetInt("Health");
+        playerInstance.Satiety = PlayerPrefs.GetInt("Satiety");
+        playerInstance.Stamina = PlayerPrefs.GetInt("Stamina");
+        playerInstance.Date = new DateTime(PlayerPrefs.GetInt("Year"), PlayerPrefs.GetInt("Month"), PlayerPrefs.GetInt("Day"));
+        playerInstance.PartsDay = PlayerPrefs.GetInt("PartOfDay");
+        playerInstance.Grade = PlayerPrefs.GetFloat("Grade");
+    }
+
+    public bool TryLoad()
+    {
+        if (PlayerPrefs.HasKey("Username"))
+        {
+            Load();
+            return true;
+        }
+        return false;
     }
 }

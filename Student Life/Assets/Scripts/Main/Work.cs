@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Work : Task, SavedObject
+public class Work : Task, ISavedObject, ILoadObject
 {
     public string Name;
     public static List<string> NameList { get; private set; } = new List<string>() { "Продавец", "Оператор", "Сборщик", "Менеджер", "Фасовщик", "Водитель", "Грузчик", "Охранник" };
@@ -16,6 +16,14 @@ public class Work : Task, SavedObject
         CompletionTime = random.Next(3, 8);
         CompletionRequirement = CompletionTime * 2;
         Reward = CompletionTime * 100;
+    }
+
+    public void Init(string Name, int CompletionTime, int CompletionRequirement, int Reward)
+    {
+        this.Name = Name;
+        this.CompletionTime = CompletionTime;
+        this.CompletionRequirement = CompletionRequirement;
+        this.Reward = Reward;
     }
 
     public override void CompleteTask()
@@ -37,5 +45,22 @@ public class Work : Task, SavedObject
     {
         PlayerPrefs.SetInt("CompletionTime", CompletionTime);
         PlayerPrefs.SetInt("CompletionRequirement", CompletionRequirement);
+    }
+
+    public void Load()
+    {
+        CompletionTime = PlayerPrefs.GetInt("CompletionTime");
+        CompletionRequirement = PlayerPrefs.GetInt("CompletionRequirement");
+        Reward = PlayerPrefs.GetInt("Reward");
+    }
+
+    public bool TryLoad()
+    {
+        if(PlayerPrefs.HasKey("CompletionTime"))
+        {
+            Load();
+            return true;
+        }
+        return false;
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HomeWork : Task, SavedObject
+public class HomeWork : Task, ISavedObject, ILoadObject
 {
     public override void Init()
     {
@@ -29,5 +29,21 @@ public class HomeWork : Task, SavedObject
         //todo 
         PlayerPrefs.SetInt("CompletionTime", CompletionTime);
         PlayerPrefs.SetInt("CompletionRequirement", CompletionRequirement);
+    }
+
+    public void Load()
+    {
+        CompletionTime = PlayerPrefs.GetInt("CompletionTime");
+        CompletionRequirement = PlayerPrefs.GetInt("CompletionRequirement");
+    }
+
+    public bool TryLoad()
+    {
+        if (PlayerPrefs.HasKey("CompletionTime"))
+        {
+            Load();
+            return true;
+        }
+        return false;
     }
 }
