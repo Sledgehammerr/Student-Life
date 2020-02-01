@@ -91,7 +91,9 @@ public static class Game
                 CurrentPlayer.currentHomeWork = ScriptableObject.CreateInstance<HomeWork>();
                 CurrentPlayer.currentHomeWork.Init();
             }
-            SaveLoadManager.SaveGame();
+            //SaveLoadManager.SaveGame();//todo Save
+            SaveManager saveManager = new SaveManager();
+            saveManager.SaveObject(CurrentPlayer);
         }
 
         if (CurrentPlayer.Date.Day == 1 && CurrentPlayer.PartsDay == 1 && CurrentPlayer.Grade >= 4f)

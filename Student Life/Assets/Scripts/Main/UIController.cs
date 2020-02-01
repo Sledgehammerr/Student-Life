@@ -24,8 +24,7 @@ public class UIController : MonoBehaviour
     void Start()
     {
         Game.CurrentUIController = this;
-        
-        
+
         SaveLoadManager.LoadGame();
         UpdateUI();
     }
@@ -34,7 +33,9 @@ public class UIController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SaveLoadManager.SaveGame();
+            //SaveLoadManager.SaveGame();//todo Save
+            SaveManager saveManager = new SaveManager();
+            saveManager.SaveObject(Game.CurrentPlayer);
             SceneManager.LoadScene(0);
         }
     }

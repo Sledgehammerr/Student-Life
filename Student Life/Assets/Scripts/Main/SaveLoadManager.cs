@@ -3,33 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-interface ISavedObject
-{
-    void Save();
-}
+//interface ISavedObject
+//{
+//    void Save();
+//}
 
-interface ILoadObject
-{
-    void Load();
-    bool TryLoad();
-}
+//interface ILoadObject
+//{
+//    void Load();
+//    bool TryLoad();
+//}
 
 public static class SaveLoadManager
 {
     public static void SaveGame()
     {
-        Player.playerInstance.Save();
+        //Player.playerInstance.Save();
 
-        //Game.CurrentPlayer.Save();
-        //if(Game.CurrentPlayer.currentWork != null)
-        //{
-        //    Game.CurrentPlayer.currentWork.Save();
-        //}
 
-        //if(Game.CurrentPlayer.currentHomeWork != null)
-        //{
-        //    Game.CurrentPlayer.currentHomeWork.Save();
-        //}
+        if (Game.CurrentPlayer.currentWork != null)
+        {
+            Game.CurrentPlayer.currentWork.Save();
+        }
 
         if (Game.ListController != null)
         {
@@ -41,7 +36,14 @@ public static class SaveLoadManager
     
     public static void LoadGame()
     {
-        Player.playerInstance.Load();
+        //Player.playerInstance.Load();
+
+        Player.playerInstance.currentWork = new Work();
+        if(!Player.playerInstance.currentWork.TryLoad())
+        {
+            Player.playerInstance.currentWork = null;
+        }
+        
     }
 
     public static bool TryLoad()

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HomeWork : Task, ISavedObject, ILoadObject
-{
+public class HomeWork : Task//, ISavedObject, ILoadObject 
+{//todo
     public override void Init()
     {
         CompletionTime = 4;
@@ -26,7 +26,6 @@ public class HomeWork : Task, ISavedObject, ILoadObject
 
     public void Save()
     {
-        //todo 
         PlayerPrefs.SetInt("CompletionTime", CompletionTime);
         PlayerPrefs.SetInt("CompletionRequirement", CompletionRequirement);
     }
@@ -46,4 +45,5 @@ public class HomeWork : Task, ISavedObject, ILoadObject
         }
         return false;
     }
+
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorkListController : MonoBehaviour, ISavedObject, ILoadObject
+public class WorkListController : MonoBehaviour//, ISavedObject, ILoadObject
 {
     public GameObject WorkPrefab;
     public GameObject Content;
@@ -15,6 +15,7 @@ public class WorkListController : MonoBehaviour, ISavedObject, ILoadObject
         listController = this;
         Game.ListController = this;
         Generate();
+
         TryLoad();
     }
 

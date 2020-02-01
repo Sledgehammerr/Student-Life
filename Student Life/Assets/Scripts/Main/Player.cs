@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour, ISavedObject, ILoadObject
-{
+public class Player : MonoBehaviour, ISavedObject//, ILoadObject
+{//todo
     public string UserName { get; set; }
     public int Money { get; set; }
     private int health;
@@ -142,6 +142,7 @@ public class Player : MonoBehaviour, ISavedObject, ILoadObject
         grade = 5.0;
     }
 
+
     public void Buy(Item item)
     {
         if (Money - item.Price >= 0)
@@ -154,39 +155,59 @@ public class Player : MonoBehaviour, ISavedObject, ILoadObject
         }
     }
 
-    public void Save()
+    public void Save(ISaveManager man)
     {
-        PlayerPrefs.SetString("Username", playerInstance.UserName);
-        PlayerPrefs.SetInt("Money", playerInstance.Money);
-        PlayerPrefs.SetInt("Health", playerInstance.Health);
-        PlayerPrefs.SetInt("Satiety", playerInstance.Satiety);
-        PlayerPrefs.SetInt("Stamina", playerInstance.Stamina);
-        PlayerPrefs.SetInt("Day", playerInstance.Date.Day);
-        PlayerPrefs.SetInt("Month", playerInstance.Date.Month);
-        PlayerPrefs.SetInt("Year", playerInstance.Date.Year);
-        PlayerPrefs.SetInt("PartOfDay", playerInstance.PartsDay);
-        PlayerPrefs.SetFloat("Grade", (float)playerInstance.Grade);
+        man.SaveData("Username", playerInstance.UserName);
+        man.SaveData("Money", playerInstance.Money);
+        man.SaveData("Health", playerInstance.Health);
+        man.SaveData("Satiety", playerInstance.Satiety);
+        man.SaveData("Stamina", playerInstance.Stamina);
+        man.SaveData("Day", playerInstance.Date.Day);
+        man.SaveData("Month", playerInstance.Date.Month);
+        man.SaveData("Year", playerInstance.Date.Year);
+        man.SaveData("PartOfDay", playerInstance.PartsDay);
+        man.SaveData("Grade", (float)playerInstance.Grade);
+        Debug.Log("Save");
     }
 
-    public void Load()
+    public void Init(ILoadManager man)//todo Load
     {
-        playerInstance.UserName = PlayerPrefs.GetString("Username");
-        playerInstance.Money = PlayerPrefs.GetInt("Money");
-        playerInstance.Health = PlayerPrefs.GetInt("Health");
-        playerInstance.Satiety = PlayerPrefs.GetInt("Satiety");
-        playerInstance.Stamina = PlayerPrefs.GetInt("Stamina");
-        playerInstance.Date = new DateTime(PlayerPrefs.GetInt("Year"), PlayerPrefs.GetInt("Month"), PlayerPrefs.GetInt("Day"));
-        playerInstance.PartsDay = PlayerPrefs.GetInt("PartOfDay");
-        playerInstance.Grade = PlayerPrefs.GetFloat("Grade");
+        //Money = man.Read(new IloadableObjectLoader)
     }
 
-    public bool TryLoad()
-    {
-        if (PlayerPrefs.HasKey("Username"))
-        {
-            Load();
-            return true;
-        }
-        return false;
-    }
+    //public void Save()
+    //{
+    //    PlayerPrefs.SetString("Username", playerInstance.UserName);
+    //    PlayerPrefs.SetInt("Money", playerInstance.Money);
+    //    PlayerPrefs.SetInt("Health", playerInstance.Health);
+    //    PlayerPrefs.SetInt("Satiety", playerInstance.Satiety);
+    //    PlayerPrefs.SetInt("Stamina", playerInstance.Stamina);
+    //    PlayerPrefs.SetInt("Day", playerInstance.Date.Day);
+    //    PlayerPrefs.SetInt("Month", playerInstance.Date.Month);
+    //    PlayerPrefs.SetInt("Year", playerInstance.Date.Year);
+    //    PlayerPrefs.SetInt("PartOfDay", playerInstance.PartsDay);
+    //    PlayerPrefs.SetFloat("Grade", (float)playerInstance.Grade);
+    //}
+
+    //public void Load()
+    //{
+    //    playerInstance.UserName = PlayerPrefs.GetString("Username");
+    //    playerInstance.Money = PlayerPrefs.GetInt("Money");
+    //    playerInstance.Health = PlayerPrefs.GetInt("Health");
+    //    playerInstance.Satiety = PlayerPrefs.GetInt("Satiety");
+    //    playerInstance.Stamina = PlayerPrefs.GetInt("Stamina");
+    //    playerInstance.Date = new DateTime(PlayerPrefs.GetInt("Year"), PlayerPrefs.GetInt("Month"), PlayerPrefs.GetInt("Day"));
+    //    playerInstance.PartsDay = PlayerPrefs.GetInt("PartOfDay");
+    //    playerInstance.Grade = PlayerPrefs.GetFloat("Grade");
+    //}
+
+    //public bool TryLoad()
+    //{
+    //    if (PlayerPrefs.HasKey("Username"))
+    //    {
+    //        Load();
+    //        return true;
+    //    }
+    //    return false;
+    //}
 }

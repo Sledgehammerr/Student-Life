@@ -45,7 +45,6 @@ public class GameMenu : MonoBehaviour
     {
         if (Game.CurrentPlayer.currentWork == null)
         {
-            Debug.Log("No work");
             if (WorkListPanel.activeSelf)
             {
                 WorkListPanel.SetActive(false);
@@ -59,7 +58,6 @@ public class GameMenu : MonoBehaviour
         }
         else
         {
-            Debug.Log("Work");
             if (WorkPanel.activeSelf)
             {
                 WorkPanel.SetActive(false);

@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Work : Task, ISavedObject, ILoadObject
-{
+public class Work : Task//, ISavedObject, ILoadObject
+{//todo
     public string Name;
     public static List<string> NameList { get; private set; } = new List<string>() { "Продавец", "Оператор", "Сборщик", "Менеджер", "Фасовщик", "Водитель", "Грузчик", "Охранник" };
 
     private static System.Random random = new System.Random();
     public int Reward { get; private set; }
+
+    private SaveManager saveManager;
 
     public override void Init()
     {
@@ -43,15 +45,16 @@ public class Work : Task, ISavedObject, ILoadObject
 
     public void Save()
     {
-        PlayerPrefs.SetInt("CompletionTime", CompletionTime);
-        PlayerPrefs.SetInt("CompletionRequirement", CompletionRequirement);
+        PlayerPrefs.SetInt("Work_CompletionTime", CompletionTime);
+        PlayerPrefs.SetInt("Work_CompletionRequirement", CompletionRequirement);
+        PlayerPrefs.SetInt("Work_Reward", Reward);
     }
 
     public void Load()
     {
-        CompletionTime = PlayerPrefs.GetInt("CompletionTime");
-        CompletionRequirement = PlayerPrefs.GetInt("CompletionRequirement");
-        Reward = PlayerPrefs.GetInt("Reward");
+        CompletionTime = PlayerPrefs.GetInt("Work_CompletionTime");
+        CompletionRequirement = PlayerPrefs.GetInt("Work_CompletionRequirement");
+        Reward = PlayerPrefs.GetInt("Work_Reward");
     }
 
     public bool TryLoad()
