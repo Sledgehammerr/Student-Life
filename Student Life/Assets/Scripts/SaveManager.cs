@@ -17,17 +17,13 @@ public interface ISavedObject
 {
     void Save(ISaveManager man);
 }
-class SaveManager : ISaveManager
+public class SaveManager : ISaveManager
 {
-    FileInfo file;
+    public static SaveManager Instance { get; private set; }
 
     public SaveManager()
     {
-    }
-
-    public SaveManager(string filename)
-    {
-        file = new FileInfo(filename);
+        Instance = this;
     }
 
     public void SaveData(string key, string value)

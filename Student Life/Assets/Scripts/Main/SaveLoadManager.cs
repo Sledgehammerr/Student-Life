@@ -21,28 +21,28 @@ public static class SaveLoadManager
         //Player.playerInstance.Save();
 
 
-        if (Game.CurrentPlayer.currentWork != null)
-        {
-            Game.CurrentPlayer.currentWork.Save();
-        }
+        //if (Game.CurrentPlayer.currentWork != null)
+        //{
+        //    Game.CurrentPlayer.currentWork.Save();
+        //}
 
-        if (Game.ListController != null)
-        {
-            Game.ListController.Save();
-        }
+        //if (Game.ListController != null)
+        //{
+        //    Game.ListController.Save();
+        //}
 
-        PlayerPrefs.Save();
+        //PlayerPrefs.Save();
     }
     
     public static void LoadGame()
     {
         //Player.playerInstance.Load();
 
-        Player.playerInstance.currentWork = new Work();
-        if(!Player.playerInstance.currentWork.TryLoad())
-        {
-            Player.playerInstance.currentWork = null;
-        }
+        //Player.playerInstance.currentWork = new Work();
+        //if(!Player.playerInstance.currentWork.TryLoad())
+        //{
+        //    Player.playerInstance.currentWork = null;
+        //}
         
     }
 

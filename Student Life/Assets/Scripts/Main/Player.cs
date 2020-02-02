@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour, ISavedObject//, ILoadObject
+public class Player : MonoBehaviour, ISavedObject, ILoadableObject
 {//todo
-    public string UserName { get; set; }
-    public int Money { get; set; }
+    private string userName;
+    private int money;
     private int health;
     private int satiety;
     private int stamina;
@@ -14,8 +14,20 @@ public class Player : MonoBehaviour, ISavedObject//, ILoadObject
     public HomeWork currentHomeWork;
     public Work currentWork;
     public DateTime Date { get; set; }
-    private double grade;
+    private float grade;
     public static Player playerInstance { get; set; }
+
+    public string UserName 
+    {
+        get { return userName; }
+        set { userName = value; }
+    }
+
+    public int Money
+    {
+        get { return money; }
+        set { money = value; }
+    }
 
     public int Health
     {
@@ -95,7 +107,7 @@ public class Player : MonoBehaviour, ISavedObject//, ILoadObject
         }
     }
 
-    public double Grade 
+    public float Grade 
     {
         get { return grade; }
         set
@@ -139,7 +151,7 @@ public class Player : MonoBehaviour, ISavedObject//, ILoadObject
         Satiety = 100;
         Stamina = 100;
         PartsDay = 1;
-        grade = 5.0;
+        grade = 5.0f;
     }
 
 
@@ -157,22 +169,55 @@ public class Player : MonoBehaviour, ISavedObject//, ILoadObject
 
     public void Save(ISaveManager man)
     {
-        man.SaveData("Username", playerInstance.UserName);
-        man.SaveData("Money", playerInstance.Money);
-        man.SaveData("Health", playerInstance.Health);
-        man.SaveData("Satiety", playerInstance.Satiety);
-        man.SaveData("Stamina", playerInstance.Stamina);
-        man.SaveData("Day", playerInstance.Date.Day);
-        man.SaveData("Month", playerInstance.Date.Month);
-        man.SaveData("Year", playerInstance.Date.Year);
-        man.SaveData("PartOfDay", playerInstance.PartsDay);
-        man.SaveData("Grade", (float)playerInstance.Grade);
+        man.SaveData("Username", userName);
+        man.SaveData("Money", money);
+        man.SaveData("Health", health);
+        man.SaveData("Satiety", satiety);
+        man.SaveData("Stamina", stamina);
+        man.SaveData("Day", Date.Day);
+        man.SaveData("Month", Date.Month);
+        man.SaveData("Year", Date.Year);
+        man.SaveData("PartOfDay", partsDay);
+        man.SaveData("Grade", (float)grade);
         Debug.Log("Save");
     }
 
-    public void Init(ILoadManager man)//todo Load
+    public void Init(ILoadManager man)
     {
-        //Money = man.Read(new IloadableObjectLoader)
+        int day, month, year;
+        man.Load("Username", out userName);
+        man.Load("Money", out money);
+        man.Load("Health", out health);
+        man.Load("Satiety", out satiety);
+        man.Load("Stamina", out stamina);
+        man.Load("Day", out day);
+        man.Load("Month", out month);
+        man.Load("Year", out year);
+
+        Date = new DateTime(year, month, day);
+
+        man.Load("PartOfDay", out partsDay);
+        man.Load("Grade", out grade);
+    }
+
+    public void Load(ILoadManager man)
+    {
+        int day, month, year;
+        man.Load("Username", out userName);
+        man.Load("Money", out money);
+        man.Load("Health", out health);
+        man.Load("Satiety", out satiety);
+        man.Load("Stamina", out stamina);
+        man.Load("Day", out day);
+        man.Load("Month", out month);
+        man.Load("Year", out year);
+
+        Date = new DateTime(year, month, day);
+
+        man.Load("PartOfDay", out partsDay);
+        man.Load("Grade", out grade);
+
+        Debug.Log("Load");
     }
 
     //public void Save()

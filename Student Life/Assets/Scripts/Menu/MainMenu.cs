@@ -21,14 +21,17 @@ public class MainMenu : MonoBehaviour
     public void PlayButton()
     {
         menu.SetActive(false);
-        //if (SaveLoadManager.TryLoad())//todo Save Try
-        //{
-        //    SceneManager.LoadScene(1);
-        //}
-        //else
-        //{
-        //    login.SetActive(true);
-        //}
+
+        new LoadManager();
+
+        try
+        {
+            LoadManager.LoadInstance.LoadObject(Game.CurrentPlayer);
+            SceneManager.LoadScene(1);
+        }
+        catch
+        { 
+        }
         login.SetActive(true);
     }
 
@@ -48,9 +51,8 @@ public class MainMenu : MonoBehaviour
         {
             player.UserName = inputUserName.text;
             player.Init();
-            //SaveLoadManager.SaveGame();//todo Save
-            SaveManager saveManager = new SaveManager();
-            saveManager.SaveObject(Game.CurrentPlayer);
+            new SaveManager();
+            SaveManager.Instance.SaveObject(Game.CurrentPlayer);
             SceneManager.LoadScene(1);
             
         }

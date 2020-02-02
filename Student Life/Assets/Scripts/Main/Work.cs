@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Work : Task//, ISavedObject, ILoadObject
+public class Work : Task, ISavedObject, ILoadableObject
 {//todo
     public string Name;
     public static List<string> NameList { get; private set; } = new List<string>() { "Продавец", "Оператор", "Сборщик", "Менеджер", "Фасовщик", "Водитель", "Грузчик", "Охранник" };
@@ -12,20 +12,19 @@ public class Work : Task//, ISavedObject, ILoadObject
 
     private SaveManager saveManager;
 
+    //public Work(string Name, int CompletionTime, int CompletionRequirement, int Reward)
+    //{
+    //    this.Name = Name;
+    //    this.CompletionTime = CompletionTime;
+    //    this.CompletionRequirement = CompletionRequirement;
+    //    this.Reward = Reward;
+    //}
     public override void Init()
     {
         Name = NameList[random.Next(0, NameList.Count)];
         CompletionTime = random.Next(3, 8);
         CompletionRequirement = CompletionTime * 2;
         Reward = CompletionTime * 100;
-    }
-
-    public void Init(string Name, int CompletionTime, int CompletionRequirement, int Reward)
-    {
-        this.Name = Name;
-        this.CompletionTime = CompletionTime;
-        this.CompletionRequirement = CompletionRequirement;
-        this.Reward = Reward;
     }
 
     public override void CompleteTask()
@@ -43,27 +42,41 @@ public class Work : Task//, ISavedObject, ILoadObject
         Game.CurrentPlayer.currentWork = null;
     }
 
-    public void Save()
-    {
-        PlayerPrefs.SetInt("Work_CompletionTime", CompletionTime);
-        PlayerPrefs.SetInt("Work_CompletionRequirement", CompletionRequirement);
-        PlayerPrefs.SetInt("Work_Reward", Reward);
-    }
+    //public void Save(ISaveManager man)
+    //{
+    //    man.SaveData("Work_Name", Name);
+    //    man.SaveData("Work_CompTime", CompletionTime);
+    //    man.SaveData("Work_CompReq", CompletionRequirement);
+    //    man.SaveData("Work_Reward", Reward);
 
-    public void Load()
-    {
-        CompletionTime = PlayerPrefs.GetInt("Work_CompletionTime");
-        CompletionRequirement = PlayerPrefs.GetInt("Work_CompletionRequirement");
-        Reward = PlayerPrefs.GetInt("Work_Reward");
-    }
+    //}
 
-    public bool TryLoad()
-    {
-        if(PlayerPrefs.HasKey("CompletionTime"))
-        {
-            Load();
-            return true;
-        }
-        return false;
-    }
+    //public void Load(ILoadManager man)
+    //{
+    //    throw new System.NotImplementedException();
+    //}
+
+    //public void Save()
+    //{
+    //    PlayerPrefs.SetInt("Work_CompletionTime", CompletionTime);
+    //    PlayerPrefs.SetInt("Work_CompletionRequirement", CompletionRequirement);
+    //    PlayerPrefs.SetInt("Work_Reward", Reward);
+    //}
+
+    //public void Load()
+    //{
+    //    CompletionTime = PlayerPrefs.GetInt("Work_CompletionTime");
+    //    CompletionRequirement = PlayerPrefs.GetInt("Work_CompletionRequirement");
+    //    Reward = PlayerPrefs.GetInt("Work_Reward");
+    //}
+
+    //public bool TryLoad()
+    //{
+    //    if(PlayerPrefs.HasKey("CompletionTime"))
+    //    {
+    //        Load();
+    //        return true;
+    //    }
+    //    return false;
+    //}
 }

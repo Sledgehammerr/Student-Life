@@ -12,7 +12,7 @@ public class HomeWork : Task//, ISavedObject, ILoadObject
 
     public override void CompleteTask()
     {
-        Game.CurrentPlayer.Grade += 0.5;
+        Game.CurrentPlayer.Grade += 0.5f;
         Game.Message($"Домашняя работа выполнена. Ваш текущий балл - {Game.CurrentPlayer.Grade}");
         Destroy(this);
     }

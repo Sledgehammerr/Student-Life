@@ -3,41 +3,59 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using UnityEngine;
+
 
 public interface ILoadManager
-{
-    ILoadableObject Read(IloadableObjectLoader loader);
+{    
+    void Load(string key, out string value);
+    void Load(string key, out int value);
+    void Load(string key, out float value);
+    void LoadObject(ILoadableObject obj);
 }
 
-public interface ILoadableObject { }
-
-public interface IloadableObjectLoader
+public interface ILoadableObject
 {
-    ILoadObject load(ILoadManager man);
-    //ILoadableObject Load(LoadManager loadManager);//todo Load
+    void Load(ILoadManager man);
 }
 
-public interface ILoadObject
+public class LoadManager : ILoadManager
 {
-    void Load();
-    bool TryLoad();
-}
+    public event EventHandler<ILoadableObject> ObjectDidLoad;
+    //public event EventHandler<ILoadableObject> DidStartLoad;
+    //public event EventHandler<ILoadableObject> DidEndLoad;
+    
+    public static LoadManager LoadInstance { get; private set; }
+    static LoadLogger LoggerInstance;
 
-class LoadManager : ILoadManager
-{
-    public ILoadableObject Read(IloadableObjectLoader loader)//todo Load
+    public LoadManager()
     {
-        throw new NotImplementedException();
-        //return loader.Load(this);
+        if(LoadInstance == null)
+        {
+            LoadInstance = this;
+            LoggerInstance = new LoadLogger(LoadInstance);
+        }
     }
 
-    //public class Loader : ILoadableObject
-    //{
-    //    public Loader() { }
-    //    public ILoadableObject Load(ILoadManager man)
-    //    {
-    //        return new Player(man);
-    //    }
-    //}
+    public void Load(string key, out string value)
+    {
+        value = PlayerPrefs.GetString(key);
+    }
 
+    public void Load(string key, out int value)
+    {
+        value = PlayerPrefs.GetInt(key);
+    }
+
+    public void Load(string key, out float value)
+    {
+        value = PlayerPrefs.GetFloat(key);
+    }
+
+    public void LoadObject(ILoadableObject obj)
+    {
+        ObjectDidLoad(this, obj);
+        obj.Load(this);
+        
+    }
 }
